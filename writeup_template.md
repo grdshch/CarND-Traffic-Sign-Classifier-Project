@@ -1,11 +1,5 @@
 #**Traffic Sign Recognition** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
@@ -19,9 +13,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
+[image1]: ./imgs/examples.png "Examples"
+[image2]: ./imgs/preprocessed.png "Preprocessing"
+[image3]: ./imgs/rolled.png "Additional image"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
@@ -36,64 +30,53 @@ The goals / steps of this project are the following:
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ###Data Set Summary & Exploration
 
 ####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-The code for this step is contained in the second code cell of the IPython notebook.  
+The code for this step is contained in the third code cell of the IPython notebook.  
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+I used the numpy library to calculate summary statistics of the traffic signs data set:
 
-* The size of training set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is 34799x32x32x3
+* The size of test set is 12630x32x32x3
+* The shape of a traffic sign image is 32x32x3
+* The number of unique classes/labels in the data set is 43
 
 ####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-The code for this step is contained in the third code cell of the IPython notebook.  
+The code for this step is contained in the 11th code cell of the IPython notebook.  
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is a subset of images from the training set with their labels from signnames.csv file. From the chart we can see that images have different brightness, different size of signs and some noize.
 
 ![alt text][image1]
 
 ###Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+####1. Preprocessing
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
+The code for this step is contained in the eighth and nineth code cells of the IPython notebook.
+At first I decided to convert to grayscale as it was recommended in project description. Usual grayscaling is replacing three colors with their mean. But then I decided that grayscaling only may lose some valuable information and I tried to replace colors with weighted average and to get [relative luminance]https://en.wikipedia.org/wiki/Relative_luminance. Jut this conversion increased validation accuracy on coupl percents.
 
-As a first step, I decided to convert the images to grayscale because ...
-
-Here is an example of a traffic sign image before and after grayscaling.
+Here is an example of a traffic sign image before and after conversion (both in color and in grayscale).
 
 ![alt text][image2]
 
-As a last step, I normalized the image data because ...
+####2. Generating additional data
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+After all I decided to generate more training data. For each training image I added four new images which I get from the original by moving it 2 or -2 pixels by x and by y axis. I used numy roll function to move all training images in one command. This code is in nineth cell too.
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
+Here is an example of original image and image moved by two pixels left.
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
+![alt text][image2]
 
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
+After preprocessing step I have 173995 training examples (x5 to the original set).
 
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
+####3. Model architecture
 
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-The code for my final model is located in the seventh cell of the ipython notebook. 
+The code for my final model is located in the eleventh cell of the ipython notebook. 
 
 My final model consisted of the following layers:
 
