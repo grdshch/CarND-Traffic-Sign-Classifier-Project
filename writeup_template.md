@@ -72,7 +72,7 @@ The size of training set after conversion is 34799x32x32x1.
 
 After all I decided to generate more training data. For each training image I added four new images which I get from the original by moving it 2 or -2 pixels by x and by y axis. I used numy roll function to move all training images in one command. This code is in nineth cell too.
 
-Here is an example of original image and image moved by two pixels left.
+Here is an example of original image and image moved by two pixels down.
 
 ![alt text][image3]
 
