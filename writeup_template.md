@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 [HTML page with results of running Jupyter Notebook](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html)
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Writeup / README
@@ -167,46 +167,41 @@ The code for making predictions on my final model is located in the 26th cell of
 For all images the top probability is very close to 1.
 
 <table>
-<tr><td>1.0</td><td>Priority road</td>
-<td>9.370881848269619e-09</td><td>Roundabout mandatory</td>
-<td>6.369145488793748e-11</td><td>Go straight or right</td>
-<td>3.325798664244317e-11</td><td>Yield</td>
-<td>5.284194089238969e-12</td><td>End of no passing</td>
-</tr>
+<tr><td>1.0</td><td>Priority road</td></tr>
+<tr><td>9.370881848269619e-09</td><td>Roundabout mandatory</td></tr>
+<tr><td>6.369145488793748e-11</td><td>Go straight or right</td></tr>
+<tr><td>3.325798664244317e-11</td><td>Yield</td></tr>
+<tr><td>5.284194089238969e-12</td><td>End of no passing</td></tr>
 </table>
 
 <table>
-<tr><td>0.9999998807907104</td><td>Right-of-way at the next intersection</td>
-<td>1.3219302275047085e-07</td><td>Beware of ice/snow</td>
-<td>1.1635076013760681e-08</td><td>Pedestrians</td>
-<td>5.179940476551792e-09</td><td>Roundabout mandatory</td>
-<td>3.2218533396743965e-10</td><td>Double curve</td>
-</tr>
+<tr><td>0.9999998807907104</td><td>Right-of-way at the next intersection</td></tr>
+<tr><td>1.3219302275047085e-07</td><td>Beware of ice/snow</td></tr>
+<tr><td>1.1635076013760681e-08</td><td>Pedestrians</td></tr>
+<tr><td>5.179940476551792e-09</td><td>Roundabout mandatory</td></tr>
+<tr><td>3.2218533396743965e-10</td><td>Double curve</td></tr>
 </table>
 
 <table>
-<tr><td>1.0</td><td>Turn right ahead</td>
-<td>3.12951464742639e-09</td><td>Roundabout mandatory</td>
-<td>1.27788946091556e-09</td><td>Vehicles over 3.5 metric tons prohibited</td>
-<td>5.042593564930087e-10</td><td>End of no passing by vehicles over 3.5 metric tons</td>
-<td>2.602302817678037e-10</td><td>Stop</td>
-</tr>
+<tr><td>1.0</td><td>Turn right ahead</td></tr>
+<tr><td>3.12951464742639e-09</td><td>Roundabout mandatory</td></tr>
+<tr><td>1.27788946091556e-09</td><td>Vehicles over 3.5 metric tons prohibited</td></tr>
+<tr><td>5.042593564930087e-10</td><td>End of no passing by vehicles over 3.5 metric tons</td></tr>
+<tr><td>2.602302817678037e-10</td><td>Stop</td></tr>
 </table>
 
 <table>
-<tr><td>1.0</td><td>Keep right</td>
-<td>1.924926706919905e-08</td><td>Speed limit (80km/h)</td>
-<td>8.654804872776367e-09</td><td>No passing for vehicles over 3.5 metric tons</td>
-<td>7.904314536233414e-09</td><td>Turn left ahead</td>
-<td>3.231819700744154e-09</td><td>Slippery road</td>
-</tr>
+<tr><td>1.0</td><td>Keep right</td></tr>
+<tr><td>1.924926706919905e-08</td><td>Speed limit (80km/h)</td></tr>
+<tr><td>8.654804872776367e-09</td><td>No passing for vehicles over 3.5 metric tons</td></tr>
+<tr><td>7.904314536233414e-09</td><td>Turn left ahead</td></tr>
+<tr><td>3.231819700744154e-09</td><td>Slippery road</td></tr>
 </table>
 
 <table>
-<tr><td>0.9999922513961792</td><td>Yield</td>
-<td>5.949554633843945e-06</td><td>Speed limit (50km/h)</td>
-<td>6.143376367617748e-07</td><td>Slippery road</td>
-<td>5.280448931443971e-07</td><td>Road work</td>
-<td>4.9186070327778e-07</td><td>No passing for vehicles over 3.5 metric tons</td>
-</tr>
+<tr><td>0.9999922513961792</td><td>Yield</td></tr>
+<tr><td>5.949554633843945e-06</td><td>Speed limit (50km/h)</td></tr>
+<tr><td>6.143376367617748e-07</td><td>Slippery road</td></tr>
+<tr><td>5.280448931443971e-07</td><td>Road work</td></tr>
+<tr><td>4.9186070327778e-07</td><td>No passing for vehicles over 3.5 metric tons</td></tr>
 </table>
