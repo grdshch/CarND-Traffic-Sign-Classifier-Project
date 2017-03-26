@@ -21,11 +21,6 @@ The goals / steps of this project are the following:
 [image7]: ./downloaded/sign1.bmp "Traffic Sign 4"
 [image8]: ./downloaded/sign5.bmp "Traffic Sign 5"
 
-
-[Jupyter Notebook with code](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
-
-[HTML page with results of running Jupyter Notebook](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html)
-
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
@@ -35,6 +30,7 @@ The goals / steps of this project are the following:
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! and here is a link to my [project code](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+[HTML page with results of running Jupyter Notebook](http://htmlpreview.github.io/?https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html)
 
 ### Data Set Summary & Exploration
 
@@ -215,3 +211,6 @@ For all images the top probability is very close to 1.
 <tr><td>5.280448931443971e-07</td><td>Road work</td></tr>
 <tr><td>4.9186070327778e-07</td><td>No passing for vehicles over 3.5 metric tons</td></tr>
 </table>
+
+
+### [HTML page with results of running Jupyter Notebook](http://htmlpreview.github.io/?https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html)
