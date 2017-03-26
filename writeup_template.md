@@ -15,10 +15,10 @@ The goals / steps of this project are the following:
 [image1]: ./imgs/examples.png "Examples"
 [image2]: ./imgs/preprocessed.png "Preprocessing"
 [image3]: ./imgs/rolled.png "Additional image"
-[image4]: ./downloaded/sign1.bmp "Traffic Sign 1"
+[image4]: ./downloaded/sign3.bmp "Traffic Sign 1"
 [image5]: ./downloaded/sign2.bmp "Traffic Sign 2"
-[image6]: ./downloaded/sign3.bmp "Traffic Sign 3"
-[image7]: ./downloaded/sign4.bmp "Traffic Sign 4"
+[image6]: ./downloaded/sign4.bmp "Traffic Sign 3"
+[image7]: ./downloaded/sign1.bmp "Traffic Sign 4"
 [image8]: ./downloaded/sign5.bmp "Traffic Sign 5"
 
 
