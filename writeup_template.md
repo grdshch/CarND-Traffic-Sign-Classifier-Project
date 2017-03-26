@@ -166,7 +166,8 @@ The code for making predictions on my final model is located in the 26th cell of
 
 For all images the top probability is very close to 1.
 
-<table title="Priority road">
+* Priority road
+<table>
 <th>Probability</th><th>Prediction</th>
 <tr><td>1.0</td><td>Priority road</td></tr>
 <tr><td>9.370881848269619e-09</td><td>Roundabout mandatory</td></tr>
@@ -175,7 +176,8 @@ For all images the top probability is very close to 1.
 <tr><td>5.284194089238969e-12</td><td>End of no passing</td></tr>
 </table>
 
-<table title="Right-of-way at the next intersection">
+*  Right-of-way at the next intersection
+<table>
 <th>Probability</th><th>Prediction</th>
 <tr><td>0.9999998807907104</td><td>Right-of-way at the next intersection</td></tr>
 <tr><td>1.3219302275047085e-07</td><td>Beware of ice/snow</td></tr>
@@ -184,7 +186,8 @@ For all images the top probability is very close to 1.
 <tr><td>3.2218533396743965e-10</td><td>Double curve</td></tr>
 </table>
 
-<table title="Turn right ahead">
+* Turn right ahead
+<table>
 <th>Probability</th><th>Prediction</th>
 <tr><td>1.0</td><td>Turn right ahead</td></tr>
 <tr><td>3.12951464742639e-09</td><td>Roundabout mandatory</td></tr>
@@ -193,7 +196,8 @@ For all images the top probability is very close to 1.
 <tr><td>2.602302817678037e-10</td><td>Stop</td></tr>
 </table>
 
-<table title="Keep right">
+* Keep right
+<table>
 <th>Probability</th><th>Prediction</th>
 <tr><td>1.0</td><td>Keep right</td></tr>
 <tr><td>1.924926706919905e-08</td><td>Speed limit (80km/h)</td></tr>
@@ -202,7 +206,8 @@ For all images the top probability is very close to 1.
 <tr><td>3.231819700744154e-09</td><td>Slippery road</td></tr>
 </table>
 
-<table title="Yield">
+* Yield
+<table>
 <th>Probability</th><th>Prediction</th>
 <tr><td>0.9999922513961792</td><td>Yield</td></tr>
 <tr><td>5.949554633843945e-06</td><td>Speed limit (50km/h)</td></tr>
