@@ -3,13 +3,12 @@
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
+* Load the data set
 * Explore, summarize and visualize the data set
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
-
 
 [//]: # (Image References)
 
@@ -21,6 +20,11 @@ The goals / steps of this project are the following:
 [image6]: ./downloaded/sign3.png "Traffic Sign 3"
 [image7]: ./downloaded/sign4.png "Traffic Sign 4"
 [image8]: ./downloaded/sign5.png "Traffic Sign 5"
+
+
+[Jupyter Notebook with code](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+
+[HTML page with results of running Jupyter Notebook](https://github.com/grdshch/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.html)
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -58,7 +62,7 @@ Here is a subset of images from the training set with their labels from signname
 ####1. Preprocessing
 
 The code for this step is contained in the eighth and nineth code cells of the IPython notebook.
-At first I decided to convert to grayscale as it was recommended in project description. Usual grayscaling is replacing three colors with their mean. But then I decided that grayscaling only may lose some valuable information and I tried to replace colors with weighted average and to get [relative luminance]https://en.wikipedia.org/wiki/Relative_luminance. Jut this conversion increased validation accuracy on coupl percents.
+At first I decided to convert to grayscale as it was recommended in project description. Usual grayscaling is replacing three colors with their mean. But then I decided that grayscaling only may lose some valuable information and I tried to replace colors with weighted average and to get [relative luminance](https://en.wikipedia.org/wiki/Relative_luminance). Jut this conversion increased validation accuracy on couple percents.
 
 Here is an example of a traffic sign image before and after conversion (both in color and in grayscale).
 
@@ -70,7 +74,7 @@ After all I decided to generate more training data. For each training image I ad
 
 Here is an example of original image and image moved by two pixels left.
 
-![alt text][image2]
+![alt text][image3]
 
 After preprocessing step I have 173995 training examples (x5 to the original set).
 
@@ -80,18 +84,25 @@ The code for my final model is located in the eleventh cell of the ipython noteb
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+<table>
+<tr><th>Layer</th><th>Description</th></tr>
+<tr><td>Input</td><td>Image 32x32x1</td></tr>
+<tr><td>Convolution 3x3</td><td>1x1 stride, valid padding, outputs 30x30x6</td></tr>
+<tr><td>RELU</td><td></td></tr>
+<tr><td>Local response normalization</td><td></td></tr>
+<tr><td>Max pooling</td><td>2x2 stride, 2x2 kernel size, outputs 15x15x6</td></tr>
+<tr><td>Convolution 3x3</td><td>1x1 stride, valid padding, outputs 13x13x16</td></tr>
+<tr><td>RELU activation</td><td></td></tr>
+<tr><td>Local response normalization</td><td></td></tr>
+<tr><td>Max pooling</td><td>2x2 stride, 2x2 kernel size, outputs 6x6x16</td></tr>
+<tr><td>Convolution 3x3</td><td>1x1 stride, valid padding, outputs 4x4x32</td></tr>
+<tr><td>RELU activation</td><td></td></tr>
+<tr><td>Local response normalization</td><td></td></tr>
+<tr><td>Flatten</td><td>outputs 4x4x32 = 512</td></tr>
+<tr><td>Fully connected</td><td>outputs 120</td></tr>
+<tr><td>Fully connected</td><td>outputs 84</td></tr>
+<tr><td>Fully connected</td><td>outputs 43</td></tr>
+</table>
 
 
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
@@ -137,14 +148,14 @@ The code for making predictions on my final model is located in the tenth cell o
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
+<table>
+<tr><th>Image</th><th>Prediction</th></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>
 
 The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. It's comparable to the test accuracy of 95%, but of course it's hard to get any accuracy using five images only.
 
@@ -152,15 +163,49 @@ The model was able to correctly guess 5 of the 5 traffic signs, which gives an a
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For all images the top probability is very close to 1.
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+<table>
+<tr><th>Probability</th><th>Prediction</th></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>
 
+<table>
+<tr><th>Probability</th><th>Prediction</th></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>
 
-For the second image ... 
+<table>
+<tr><th>Probability</th><th>Prediction</th></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>
+
+<table>
+<tr><th>Probability</th><th>Prediction</th></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>
+
+<table>
+<tr><th>Probability</th><th>Prediction</th></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>
