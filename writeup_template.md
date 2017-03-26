@@ -16,11 +16,11 @@ The goals / steps of this project are the following:
 [image1]: ./imgs/examples.png "Examples"
 [image2]: ./imgs/preprocessed.png "Preprocessing"
 [image3]: ./imgs/rolled.png "Additional image"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image4]: ./downloaded/sign1.png "Traffic Sign 1"
+[image5]: ./downloaded/sign2.png "Traffic Sign 2"
+[image6]: ./downloaded/sign3.png "Traffic Sign 3"
+[image7]: ./downloaded/sign4.png "Traffic Sign 4"
+[image8]: ./downloaded/sign5.png "Traffic Sign 5"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -98,42 +98,40 @@ My final model consisted of the following layers:
 
 The code for training the model is located in the eigth cell of the ipython notebook. 
 
-To train the model, I used an ....
+To train the model, I used an Adam optimizer, batch size = 128, number of epochs = 20, learning rate = 0.001.
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
-
+####5. Finding the solution
 The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* validation set accuracy of 96.5%
+* test set accuracy of 95%
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+I used LeNet-5 as a base model.
+After some experiments and reading about LeNet model and other models used for traffic signs recognition I decided to increase number of convolution layers from two to three and to decrease convolution kernel size from 5x5 to 3x3. Due to larger number of convolution layers number of neurons of first fully connected layers also increased.
+Also I added local responce normalization layers after activation ones.
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+####6. Performance issues
+
+I have a lack of computational resources and so I tried to keep the model as lightweight as possible.
+What could increase the accuracy but wasn't used due to performance issues:
+* additional data - I just moved images left/right and up/down, but it makes sense also to rotate them, scale, tilt. This will increase accuracy on new images because photos are made from different distances and points of view. But generating of such data requires processing of each image separately and some of conversions requires interpolation. All such conversions required a lot of CPU time (more then I spent to train the model) and I used only generating which can be done by matrix manipulation with the entire training set.
+* Number of filters in convolutional layers. Increaing number of filters also can give better results but also increased training time dramatically.
+
+As the result preprocessing data takes few seconds, training the model (using 20 epochs) takes less then an hour on mobile CPU (i5-6260U) and the testing accuracy is 95%.
 
 ###Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+####1. Downloaded signs
 
-Here are five German traffic signs that I found on the web:
+I decided to find traffic sign images right in Germany. I opened Google Street View for some Munich suburbs and make screnshots of traffic signs. Here they are:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 
-The first image might be difficult to classify because ...
+All of them are quite clear looking. Maybe the first one isn't bright enough, the foruth - was shot from the side and its shape is ellipse instead of circle, the fifth has some noize and part of another traffic sign above it.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+####2. Predicting
 
 The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
 
@@ -148,9 +146,9 @@ Here are the results of the prediction:
 | Slippery Road			| Slippery Road      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. It's comparable to the test accuracy of 95%, but of course it's hard to get any accuracy using five images only.
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+####3. Softmax probablities
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
